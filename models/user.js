@@ -5,10 +5,13 @@ const hash = bcrypt.hashSync("B4c0/\/", salt);
 
 module.exports = {
   encrypt(req, res, next) {
-    res.pass = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+    const salt = bcrypt.genSaltSync(10);
+    res.pass = bcrypt.hashSync(req.body.password, salt);
+    next();
   },
   createUser(req, res, next) {
-    db.oneOrNone(`INSERT INTO users (user_name, password) VALUES (${req.body.username}, ${res.pass}) returning id, user_name`)
+    console.log('create user');
+    db.oneOrNone(`INSERT INTO users (user_name, password) VALUES ('${req.body.username}', '${res.pass}') returning id, user_name`)
     .then((rows) => {
       res.rows = rows;
       next();

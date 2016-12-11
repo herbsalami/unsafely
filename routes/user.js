@@ -7,4 +7,4 @@ const sendTokenJSON = (req, res) => res.json(res.token);
 user.route('/')
   .post(model.encrypt, model.createUser, auth.createToken, sendTokenJSON)
 
-module.exports = router;
+module.exports = user;
