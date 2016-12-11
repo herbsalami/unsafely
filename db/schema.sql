@@ -1,0 +1,23 @@
+BEGIN;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS places;
+DROP TABLE IF EXISTS flags;
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  user_name VARCHAR(10) NOT NULL,
+  password VARCHAR(255) NOT NULL);
+
+CREATE TABLE places(
+  id VARCHAR(100) PRIMARY KEY,
+  place_name TEXT NOT NULL,
+  address VARCHAR(100) NOT NULL);
+
+CREATE TABLE flags(
+  id SERIAL PRIMARY KEY,
+  flag_name VARCHAR(10),
+  place_id VARCHAR(100) REFERENCES places,
+  user_id INTEGER REFERENCES users);
+
+COMMIT;
