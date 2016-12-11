@@ -11,6 +11,9 @@ const PORT = process.argv[2] || process.env.PORT || 3000;
 
 app.use(logger('dev'));
 
+app.use('/user', userRoute);
+app.use('/place', placeRoute);
+app.use('/flag', flagRoute);
 
 
 app.use(express.static(path.join(__dirname,'public')));
