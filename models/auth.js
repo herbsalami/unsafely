@@ -15,6 +15,18 @@ const createToken = (req, res, next) => {
   next();
 }
 
+const authenticate = (req, res, next) => {
+  const tokenData = req.query.token || req.body.token;
+  try {
+    res.user = jwt.verify(tokenData, process.env.SECRET)
+  }
+  catch (err) {
+    console.log('err');
+  }
+  next();
+}
+
 module.exports = {
-  createToken
+  createToken,
+  authenticate,
 }

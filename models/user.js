@@ -1,7 +1,6 @@
 const db = require('../db/config');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
-const hash = bcrypt.hashSync("B4c0/\/", salt);
 
 module.exports = {
   encrypt(req, res, next) {
@@ -10,12 +9,31 @@ module.exports = {
     next();
   },
   createUser(req, res, next) {
-    console.log('create user');
     db.oneOrNone(`INSERT INTO users (user_name, password) VALUES ('${req.body.username}', '${res.pass}') returning id, user_name`)
     .then((rows) => {
-      res.rows = rows;
+      res.rows = {
+        userID: rows.id,
+        username: rows.user_name,
+      };
       next();
     })
     .catch(error => next(error));
-  }
+  },
+  loginUser(req, res, next) {
+    db.oneOrNone(`SELECT * FROM users WHERE user_name = '${req.params.userID}'`)
+    .then((rows) => {
+      if(rows && bcrypt.compareSync(req.query.password, rows.password)) {
+        res.rows = {
+          userID: rows.id,
+          username: rows.user_name,
+        };
+        next();
+      }
+      else {
+        console.log('Wrong Username or Password');
+        next();
+      }
+    })
+    .catch(error => next(error));
+  },
 }

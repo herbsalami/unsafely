@@ -9,15 +9,11 @@ CREATE TABLE users(
   user_name VARCHAR(100) NOT NULL,
   password CHAR(60) NOT NULL);
 
-CREATE TABLE places(
-  id VARCHAR(100) PRIMARY KEY,
-  place_name TEXT NOT NULL,
-  address VARCHAR(100) NOT NULL);
-
 CREATE TABLE flags(
   id SERIAL PRIMARY KEY,
-  flag_name VARCHAR(10),
-  place_id VARCHAR(100) REFERENCES places,
-  user_id INTEGER REFERENCES users);
+  flag_name VARCHAR(10) NOT NULL,
+  place_id VARCHAR(100) NOT NULL,
+  user_id INTEGER REFERENCES users,
+  date_created TIMESTAMP NOT NULL DEFAULT NOW());
 
 COMMIT;

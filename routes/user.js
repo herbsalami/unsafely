@@ -5,6 +5,9 @@ const auth = require('../models/auth');
 const sendTokenJSON = (req, res) => res.json(res.token);
 
 user.route('/')
-  .post(model.encrypt, model.createUser, auth.createToken, sendTokenJSON)
+  .post(model.encrypt, model.createUser, auth.createToken, sendTokenJSON);
+
+user.route('/:userID')
+  .get(model.loginUser, auth.createToken, sendTokenJSON);
 
 module.exports = user;

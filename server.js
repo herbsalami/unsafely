@@ -15,8 +15,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use('/user', userRoute);
 // app.use('/place', placeRoute);
-// app.use('/flag', flagRoute);
+app.use('/flag', flagRoute);
 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(PORT, () => console.log('Server is listening on', PORT));
