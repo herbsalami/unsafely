@@ -15,6 +15,11 @@ const createToken = (req, res, next) => {
   next();
 }
 
+const renewToken = (req, res, next) => {
+  res.token = token(res.user);
+  next();
+}
+
 const authenticate = (req, res, next) => {
   const tokenData = req.query.token || req.body.token;
   try {
