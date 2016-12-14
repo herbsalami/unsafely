@@ -8,26 +8,53 @@ import './App.css';
 export default class App extends Component {
   constructor() {
     super();
-
     this.state = {
       user: window.localStorage.getItem('unsafely_username'),
-      place: null
-    }
+      place: null,
+      flags: null
+    };
+    this.changePlace = this.changePlace.bind(this);
+    this.renderMain = this.renderMain.bind(this);
+    this.getFlagsForPlace = this.getFlagsForPlace.bind(this);
+    this.distributeFlags = this.distributeFlags.bind(this);
   }
+
   changePlace(place) {
-    fetch(`./places/${place.place_id}?token=${window.localStorage.getItem('unsafely_token')}`)
+    fetch(`./place/${place.place_id}?token=${window.localStorage.getItem('unsafely_token')}`)
     .then(r => r.json())
     .then((data) => {
-      console.log(data);
       this.setState({
-        place: data
+        place: data.place.result
       })
+      window.localStorage.setItem('unsafely_token', data.token);
+      this.getFlagsForPlace(this.state.place.place_id);
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
+
+  getFlagsForPlace(id) {
+    fetch(`./flag/${id}?token=${window.localStorage.getItem('unsafely_token')}`)
+    .then(r => r.json())
+    .then((data) => {
+      this.distributeFlags(data.flags);
+      window.localStorage.setItem('unsafely_token', data.token);
+    })
+    .catch(err => console.log(err));
+  }
+
+  distributeFlags(flags) {
+    const flagObject = { "Race": 0, "Religion": 0, "Gender": 0, "Sexuality": 0};
+    flags.forEach((flag) => {
+      flagObject[flag.flag_name] += 1;
+    })
+    this.setState({
+      flags: flagObject
+    })
+  }
+
   renderMain() {
     if (this.state.place !== null) {
-      return <Main placeID={this.state.place.place_id} coordinates={[this.state.place.geometry.location.lat, this.state.place.geometry.location.lng]} placeName={this.state.place.name} placeAddress={this.state.place.formatted_address}/>;
+      return <Main flags={this.state.flags} placeID={this.state.place.place_id} coordinates={this.state.place.geometry.location} placeName={this.state.place.name} placeAddress={this.state.place.formatted_address}/>;
     }
     else {
       return <div/>;

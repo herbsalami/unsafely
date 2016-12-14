@@ -17,6 +17,6 @@ const fetchPlace = (req, res, next) => {
 }
 
 maps.route('/:placeID')
-  .get(auth.authenticate, fetchPlace, auth.createToken, sendTokenJSON);
+  .get(auth.authenticate, fetchPlace, auth.renewToken, sendTokenJSON);
 
 module.exports = maps;

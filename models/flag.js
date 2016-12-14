@@ -10,7 +10,7 @@ module.exports = {
     .catch(error => next(error));
   },
   getFlags(req, res, next) {
-    db.any(`SELECT * FROM flags`)
+    db.any(`SELECT flag_name FROM flags WHERE place_id ILIKE '${req.params.placeID}'`)
     .then((rows) =>{
       res.rows = rows;
       next();

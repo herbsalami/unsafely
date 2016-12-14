@@ -17,11 +17,14 @@ app.use('/user', userRoute);
 app.use('/place', placeRoute);
 app.use('/flag', flagRoute);
 
+const history = require('connect-history-api-fallback');
+app.use(history());
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', function (req, res){
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
 
-
 app.listen(PORT, () => console.log('Server is listening on', PORT));
+

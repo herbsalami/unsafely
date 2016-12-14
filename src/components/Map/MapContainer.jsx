@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
-const Map = require('react-d3-map').Map;
-const MarkerGroup = require('react-d3-map').MarkerGroup;
 import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
 
 export default function MapContainer (props) {
   return (
-    <section style={{height: "100%"}}>
+    <section>
       <GoogleMapLoader
         containerElement={
           <div
             style={{
-              left: "500px",
-              height: "100px",
-              width: "100px"
+              height: "25vh",
+              width: "25vh"
             }}
           />
         }
-        googleMapElement= {
+        googleMapElement={
           <GoogleMap
             ref={(map) => console.log(map)}
-            defaultZoom={3}
-            defaultCenter={{lat, long}}
+            defaultZoom={14}
+            defaultCenter={props.coordinates}
+          >
+          <Marker
+          position={props.coordinates}
+          place={props.place}
           />
+          </GoogleMap>
         }
       />
     </section>

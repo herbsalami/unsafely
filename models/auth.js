@@ -34,4 +34,5 @@ const authenticate = (req, res, next) => {
 module.exports = {
   createToken,
   authenticate,
+  renewToken,
 }

@@ -1,0 +1,26 @@
+.Main {
+  position: absolute;
+  top: 10vh;
+  left: 20%;
+  height: 80vh;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.Main > section {
+  height: 25vh;
+  padding: 3vh;
+  margin: 3vh;
+  -webkit-box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
+  -moz-box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
+  box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
+}
+
+.Main > .PlaceBox {
+  height: 25vh;
+  padding: 3vh;
+  margin: 3vh;
+}
