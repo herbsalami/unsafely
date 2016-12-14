@@ -26,7 +26,7 @@ module.exports = {
      title: 'Unsafely',
      xhtml: true,
      inject: true,
-     scripts: [],
+     scripts: ['https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJdxuzqBaEjeKR4JOM7OBWiDO6wGg6TI&libraries=places'],
      template: require('html-webpack-template'),
      appMountId: 'root-container'
    }),

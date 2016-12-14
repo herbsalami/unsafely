@@ -4,7 +4,6 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const userRoute = require('./routes/user')
-const placeRoute = require('./routes/place')
 const flagRoute = require('./routes/flag')
 
 const app = express();
@@ -18,5 +17,10 @@ app.use('/user', userRoute);
 app.use('/flag', flagRoute);
 
 app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get('*', function (req, res){
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
+})
+
 
 app.listen(PORT, () => console.log('Server is listening on', PORT));

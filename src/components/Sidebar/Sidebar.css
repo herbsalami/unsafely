@@ -1,0 +1,14 @@
+.Side-Bar {
+  position: fixed;
+  left: 0;
+  top: 10vh;
+  width: 20%;
+  height: 100%;
+  background-color: rgba(200, 180, 200, 0.25);
+  border-right: 0.5vh solid rgb(255, 191, 211, 1);
+}
+
+.Side-Bar > h3 {
+  color: #808080;
+  text-align: center;
+}
