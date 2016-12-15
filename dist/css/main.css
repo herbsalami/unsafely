@@ -1,3 +1,93 @@
+html, body {
+    background-color: rgba(211, 211, 211, 0.5);
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+.title-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  /*background-color: rgb(200, 0, 75);*/
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-image: linear-gradient(141deg, rgb(15, 184, 173) 0%, rgb(31, 200, 219) 51%, rgb(44, 181, 232) 75%);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  max-height: 10vh;
+  color: #FAFAFA;
+  overflow: hidden;
+  letter-spacing: 0.5vh;
+  -webkit-box-shadow: 0px 4px 15px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 15px -4px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 15px -4px rgba(0,0,0,0.75);
+  z-index: 1;
+  text-shadow:
+   0 0 0.05vh white,
+    0 0 0.05vh white,
+    0 0 0.05vh white,
+     0 0 0.05vh white;
+}
+
+.title-container > div {
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 1%;
+  margin: 0 1%;
+  /*background-color: rgba(251, 188, 210, 0.25);*/
+}
+
+.title-container > div:hover {
+  cursor: pointer;
+}
+
+.title-container > div > h2 {
+  display: inline-block;
+  font-size: 4.5vh;
+  overflow: hidden;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.login-container > .login-box > input {
+  display: block;
+  padding: 3vh;
+  margin: 3vh;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons > div {
+  font-size: 3vh;
+  margin-right: 2vh;
+  margin-left: 2vh;
+  padding: 2vh;
+  color: white;
+  background: #FF4136;
+}
+
+.buttons > div:hover {
+  cursor: pointer;
+}
+
 .Nav-Bar {
   position: fixed;
   top: 0;
@@ -73,35 +163,91 @@
   border-right: 0.5vh solid rgb(255, 191, 211, 1);
 }
 
-.Side-Bar > h3 {
+.Side-Bar > h4 {
   color: #808080;
   text-align: center;
+}
+.FlagBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  text-align: center;
+  line-height: 0.1vh;
+  margin-top: -10vh;
+}
+
+.FlagBox > div {
+  -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+  line-height: 0.1vh;
+/*  margin-bottom: 10vh;*/
+  width: 15%;
+  color: #E6E6FA;
+  margin-bottom: 10vh;
+}
+
+.FlagBox > div:hover {
+  cursor: pointer;
+}
+
+.FlagBox > div:active {
+  cursor: crosshair;
+  background-color: black;
+}
+
+.Body {
+  background-color: #FF4136;
+}
+
+.Race {
+  background-color: #FFA101;
+}
+
+.Gender {
+  background-color: #9385D8;
+}
+
+.Religion {
+  background-color: #12DF78;
+}
+
+.Sexuality {
+  background-color: #285445;
 }
 .Main {
   position: absolute;
   top: 10vh;
   left: 20%;
-  height: 80vh;
+  height: 100%;
   width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-around;
+  overflow: scroll;
+  font-size: 3vh;
 }
 
 .Main > section {
+  background: #E6E6FA;
   height: 25vh;
   padding: 3vh;
-  margin: 3vh;
+  margin: 3vh 3vh 0 3vh;
   -webkit-box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
   -moz-box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
   box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
 }
 
 .Main > .PlaceBox {
+  width: 20%;
   height: 25vh;
   padding: 3vh;
   margin: 3vh;
+}
+html, body {
+    background-color: rgba(211, 211, 211, 0.5);
+    font-family: Tahoma, Geneva, sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map*/

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Home.css';
 
 export default class Home extends Component {
   constructor() {
@@ -59,7 +60,7 @@ export default class Home extends Component {
   render() {
     return (<div className="Home">
         <div className="title-container">
-          Unsafely
+          <div><h2>Unsafely</h2></div>
         </div>
         <div className="login-container">
           <div className="prompt">
@@ -69,8 +70,10 @@ export default class Home extends Component {
             <input type="text" size="50" value={this.state.username} onChange={event => this.updateUsername(event)} placeholder="Username" />
             <input type="password" size="50" value={this.state.password} onChange={event => this.updatePassword(event)} placeholder="Password" />
           </div>
+          <div className="buttons">
           <div className="login-button" onClick={() => this.login()}> Log In </div>
           <div className="signup-button" onClick={() => this.signup()}> Sign Up </div>
+          </div>
         </div>
       </div>);
   }

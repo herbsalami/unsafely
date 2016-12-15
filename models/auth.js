@@ -21,9 +21,11 @@ const renewToken = (req, res, next) => {
 }
 
 const authenticate = (req, res, next) => {
-  const tokenData = req.query.token || req.body.token;
+  console.log(req.body, 'HI!');
+  const tokenData = req.query.token ? req.query.token : req.body.token;
   try {
-    res.user = jwt.verify(tokenData, process.env.SECRET)
+    res.user = jwt.verify(tokenData, process.env.SECRET);
+    console.log(res.user)
   }
   catch (err) {
     console.log('err');

@@ -2,24 +2,28 @@
   position: absolute;
   top: 10vh;
   left: 20%;
-  height: 80vh;
+  height: 100%;
   width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-around;
+  overflow: scroll;
+  font-size: 3vh;
 }
 
 .Main > section {
+  background: #E6E6FA;
   height: 25vh;
   padding: 3vh;
-  margin: 3vh;
+  margin: 3vh 3vh 0 3vh;
   -webkit-box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
   -moz-box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
   box-shadow: 0px 4px 15px -4px rgba(238, 202, 203, 0.75);
 }
 
 .Main > .PlaceBox {
+  width: 20%;
   height: 25vh;
   padding: 3vh;
   margin: 3vh;

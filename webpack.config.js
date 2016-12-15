@@ -59,7 +59,8 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel'
+        loader: 'babel',
+        exclude: /(node_modules)/,
       },
       {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,

@@ -4,7 +4,7 @@ import './Sidebar.css'
 
 const Sidebar = (props) => {
   return (<div className="Side-Bar">
-      <h3> Search for a location to view and flag incidents of discrimination, opression, or otherization. </h3>
+      <h4> Search for a location to view and flag incidents of discrimination, opression, or otherization. </h4>
       <Search changePlace={props.changePlace}/>
     </div>);
 }

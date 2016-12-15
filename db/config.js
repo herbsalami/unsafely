@@ -1,7 +1,7 @@
 require('dotenv').config();
 const pg = require('pg-promise')({/* OPTIONAL Initialization Options */});
 
-const config = {
+const config = process.env.DATABASE_URL || {
   host:       process.env.DB_HOST,
   port:       process.env.DB_PORT,
   database:   process.env.DB_NAME,

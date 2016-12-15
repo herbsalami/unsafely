@@ -5,7 +5,7 @@ const auth = require('../models/auth');
 const sendTokenJSON = (req, res) => res.json({token: res.token, flags: res.rows});
 
 flag.route('/')
-  .post(auth.authenticate, model.createFlag, auth.renewToken, sendTokenJSON);
+  .post(auth.authenticate, model.createFlag, model.returnFlags, auth.renewToken, sendTokenJSON);
 
 flag.route('/:placeID')
   .get(auth.authenticate, model.getFlags, auth.renewToken, sendTokenJSON);

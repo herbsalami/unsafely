@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Flag from '../Flag/Flag.jsx';
+import './FlagContainer.css';
 
 const FlagContainer = (props) => {
-    const flagsClone = props.flags;
     return(
     <div className="FlagBox">
-      <Flag flagName="Race" flagCount={flagsClone} />
+    {Object.keys(props.flags).map((flagName) => {
+      return (<Flag key={flagName} addFlag={props.addFlag}flagName={flagName} flagCount={props.flags[flagName]} />)
+    })}
       </div>)
 }
 
