@@ -25,7 +25,7 @@ module.exports = {
    new HtmlWebpackPlugin({
      title: 'Unsafely',
      xhtml: true,
-     inject: true,
+     inject: false,
      scripts: ['https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJdxuzqBaEjeKR4JOM7OBWiDO6wGg6TI&libraries=places'],
      template: require('html-webpack-template'),
      appMountId: 'root-container'
